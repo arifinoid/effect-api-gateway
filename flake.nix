@@ -27,6 +27,11 @@
           ...
         }:
         {
+          # System-language hooks (bun, node_modules) cannot run inside the
+          # sandboxed `nix flake check`, so the check derivation is disabled.
+          # Hooks are installed & verified in the devShell instead.
+          pre-commit.check.enable = false;
+
           pre-commit.settings.hooks = {
             nixfmt.enable = true;
             oxlint = {
@@ -71,6 +76,7 @@
             packages = [
               pkgs.bun
               config.formatter
+              config.pre-commit.settings.package
             ]
             ++ config.pre-commit.settings.enabledPackages;
           };
