@@ -1,0 +1,25 @@
+{
+  "name": "effect-api-gateway",
+  "module": "src/main.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "bun --hot src/main.ts",
+    "start": "bun src/main.ts",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit",
+    "lint": "oxlint src",
+    "format": "oxfmt src",
+    "format:check": "oxfmt --check src"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "oxfmt": "^0.67.0",
+    "oxlint": "^1.82.0",
+    "typescript": "^7"
+  },
+  "dependencies": {
+    "@effect/platform-bun": "^4.0.0-rc.115",
+    "effect": "^4.0.0-rc.115"
+  }
+}
